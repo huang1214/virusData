@@ -37,25 +37,41 @@
                                class="site-active" data-type="tabAdd">疫情热点图</a></dd>
                         <dd><a href="javascript:;" data-url="home/trend" data-id="7" data-title="疫情新增趋势图"
                                class="site-active" data-type="tabAdd">疫情新增趋势图</a></dd>
-                        <dd><a href="javascript:;" data-url="page/applicationForm" data-id="8" data-title="数据表格"
+                        <dd><a href="javascript:;" data-url="home/table_for_data" data-id="8" data-title="数据表格"
                                class="site-active" data-type="tabAdd">数据表格</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">
                     <a href="javascript:;">省市疫情查询</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">城市数据</a></dd>
-                        <dd><a href="javascript:;">省份数据</a></dd>
+                        <!--关于页面的跳转请写在homeController中，其页面内部功能的实现请尽情发挥,单独分controller吧-->
+                        <dd><a href="javascript:;" data-url="home/hotpot" data-id="9" data-title="城市数据"
+                               class="site-active" data-type="tabAdd">城市数据</a></dd>
+                        <dd><a href="javascript:;" data-url="home/hotpot" data-id="10" data-title="省份数据"
+                               class="site-active" data-type="tabAdd">省份数据</a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item"><a href="">防控数据填报</a></li>
-                <li class="layui-nav-item"><a href="">医疗数据填报</a></li>
+
+                <li class="layui-nav-item">
+                    <a href="javascript:;">医疗数据填报</a>
+                    <dl class="layui-nav-child">
+                        <!--关于页面的跳转请写在homeController中，其页面内部功能的实现请尽情发挥,单独分controller吧-->
+                        <dd><a href="javascript:;" data-url="home/hotpot" data-id="11" data-title="口罩预约"
+                               class="site-active" data-type="tabAdd">口罩预约</a></dd>
+                        <dd><a href="javascript:;" data-url="home/hotpot" data-id="12" data-title="情况调查"
+                               class="site-active" data-type="tabAdd">情况调查</a></dd>
+                    </dl>
+                </li>
                 <li class="layui-nav-item">
                     <a href="javascript:;">全民热搜</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">疫情新闻</a></dd>
-                        <dd><a href="javascript:;">辟谣榜</a></dd>
-                        <dd><a href="javascript:;">最新新闻</a></dd>
+                        <!--关于页面的跳转请写在homeController中，其页面内部功能的实现请尽情发挥，单独分controller吧-->
+                        <dd><a href="javascript:;" data-url="home/hotpot" data-id="13" data-title="疫情新闻"
+                               class="site-active" data-type="tabAdd">疫情新闻</a></dd>
+                        <dd><a href="javascript:;" data-url="home/hotpot" data-id="14" data-title="辟谣榜"
+                               class="site-active" data-type="tabAdd">辟谣榜</a></dd>
+                        <dd><a href="javascript:;" data-url="home/hotpot" data-id="15" data-title="最新新闻"
+                               class="site-active" data-type="tabAdd">最新新闻</a></dd>
                     </dl>
                 </li>
             </ul>

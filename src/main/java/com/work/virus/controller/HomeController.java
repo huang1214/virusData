@@ -35,4 +35,10 @@ public class HomeController {
     public String trend(){
         return "trend";
     }
+
+    @RequestMapping("/table_for_data")
+    public String table_for_data(){
+        return "table_for_data";
+    }
+
 }
