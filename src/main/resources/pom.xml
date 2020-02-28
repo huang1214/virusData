@@ -177,7 +177,7 @@
         <dependency>
             <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
-            <version>1.3.1</version>
+            <version>1.3.3</version>
         </dependency>
 
         <!--   shriro的核心包   主要在该项目用来完成密码的加密功能-->
