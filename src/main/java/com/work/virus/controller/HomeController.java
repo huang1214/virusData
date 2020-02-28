@@ -26,4 +26,13 @@ public class HomeController {
     public String index(){
         return "index";
     }
+
+    @RequestMapping("/hotpot")
+    public String hotpot(){
+        return "hotpot";
+    }
+    @RequestMapping("/trend")
+    public String trend(){
+        return "trend";
+    }
 }
