@@ -57,4 +57,29 @@ public class HomeController {
         return "table_for_data";
     }
 
+    /*口罩预约界面跳转*/
+    //我要预约
+    @RequestMapping("/appointment_form")
+    public String appointmentForm(){
+        return "mask/appointment_form";
+    }
+
+    //结果查询
+    @RequestMapping("/appointment_result")
+    public String appointmentResult(){
+        return "mask/appointment_result";
+    }
+
+    //登记信息查询与修改
+    @RequestMapping("/appointment_info")
+    public String appointmentInfo(){
+        return "mask/appointment_info";
+    }
+
+    //使用说明
+    @RequestMapping("/appointment_declare")
+    public String appointmentDeclare(){
+        return "mask/appointment_declare";
+    }
+
 }
