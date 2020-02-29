@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>全国对比</title>
+    <link rel="stylesheet" href="/layui/css/layui.css" th:href="@{/layui/css/layui.css}">
+    <style>
+        div>img{
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+            margin: auto;
+        }
+        #test1{
+            margin: 0 auto;
+            margin-top: 100px;
+        }
+        body{
+            /*background-image: url(/virusData/img/backimg.png);*/
+            background-repeat: repeat-y;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+
+<div class="layui-carousel" id="test1">
+    <div carousel-item>
+        <div><img src="/virusData/img/trend/全国.png" alt=""></div>
+        <div><img src="//irusData/img/trend/全国2.png" alt=""></div>
+        <div><img src="/virusData/img/trend/全国疫情新增趋势.png" alt=""></div>
+        <div><img src="/virusDataimg/trend/全国确诊疑似趋势.png" alt=""></div>
+        <div><img src="/virusData/img/trend/全国累计治愈死亡.png" alt=""></div>
+        <div><img src="/virusData/img/trend/治愈率死亡率.png" alt=""></div>
+    </div>
+</div>
+<!-- 条目中可以是任意内容，如：<img src=""> -->
+
+<script src="/layui/layui.js" th:src="@{/layui/layui.js}"></script>
+<script>
+    layui.use('carousel', function(){
+        var carousel = layui.carousel;
+        //建造实例
+        carousel.render({
+            elem: '#test1'
+            ,width: '50%' //设置容器宽度
+            ,height:350
+            ,arrow: 'always' //始终显示箭头
+        });
+    });
+</script>
+</body>
+</html>
