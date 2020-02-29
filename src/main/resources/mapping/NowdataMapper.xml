@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.work.virus.dao.NowdataMapper" >
+  <resultMap id="BaseResultMap" type="com.work.virus.pojo.Nowdata" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="confirmedCount" property="confirmedcount" jdbcType="VARCHAR" />
+    <result column="confirmedCount_yesterday" property="confirmedcountYesterday" jdbcType="VARCHAR" />
+    <result column="suspectedCount" property="suspectedcount" jdbcType="VARCHAR" />
+    <result column="suspectedCount_yesterday" property="suspectedcountYesterday" jdbcType="VARCHAR" />
+    <result column="curedCount" property="curedcount" jdbcType="VARCHAR" />
+    <result column="curedCount_yesterday" property="curedcountYesterday" jdbcType="VARCHAR" />
+    <result column="deadCount" property="deadcount" jdbcType="VARCHAR" />
+    <result column="deadCount_yesterday" property="deadcountYesterday" jdbcType="VARCHAR" />
+    <result column="nowconfirmed" property="nowconfirmed" jdbcType="VARCHAR" />
+    <result column="nowconfirmed_yesterday" property="nowconfirmedYesterday" jdbcType="VARCHAR" />
+    <result column="heavy" property="heavy" jdbcType="VARCHAR" />
+    <result column="heavy_yesterday" property="heavyYesterday" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from nowdata
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.work.virus.pojo.Nowdata" >
+    insert into nowdata (id, confirmedCount, confirmedCount_yesterday, 
+      suspectedCount, suspectedCount_yesterday, 
+      curedCount, curedCount_yesterday, deadCount, 
+      deadCount_yesterday, nowconfirmed, nowconfirmed_yesterday, 
+      heavy, heavy_yesterday)
+    values (#{id,jdbcType=VARCHAR}, #{confirmedcount,jdbcType=VARCHAR}, #{confirmedcountYesterday,jdbcType=VARCHAR}, 
+      #{suspectedcount,jdbcType=VARCHAR}, #{suspectedcountYesterday,jdbcType=VARCHAR}, 
+      #{curedcount,jdbcType=VARCHAR}, #{curedcountYesterday,jdbcType=VARCHAR}, #{deadcount,jdbcType=VARCHAR}, 
+      #{deadcountYesterday,jdbcType=VARCHAR}, #{nowconfirmed,jdbcType=VARCHAR}, #{nowconfirmedYesterday,jdbcType=VARCHAR}, 
+      #{heavy,jdbcType=VARCHAR}, #{heavyYesterday,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.work.virus.pojo.Nowdata" >
+    update nowdata
+    set confirmedCount = #{confirmedcount,jdbcType=VARCHAR},
+      confirmedCount_yesterday = #{confirmedcountYesterday,jdbcType=VARCHAR},
+      suspectedCount = #{suspectedcount,jdbcType=VARCHAR},
+      suspectedCount_yesterday = #{suspectedcountYesterday,jdbcType=VARCHAR},
+      curedCount = #{curedcount,jdbcType=VARCHAR},
+      curedCount_yesterday = #{curedcountYesterday,jdbcType=VARCHAR},
+      deadCount = #{deadcount,jdbcType=VARCHAR},
+      deadCount_yesterday = #{deadcountYesterday,jdbcType=VARCHAR},
+      nowconfirmed = #{nowconfirmed,jdbcType=VARCHAR},
+      nowconfirmed_yesterday = #{nowconfirmedYesterday,jdbcType=VARCHAR},
+      heavy = #{heavy,jdbcType=VARCHAR},
+      heavy_yesterday = #{heavyYesterday,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select id, confirmedCount, confirmedCount_yesterday, suspectedCount, suspectedCount_yesterday, 
+    curedCount, curedCount_yesterday, deadCount, deadCount_yesterday, nowconfirmed, nowconfirmed_yesterday, 
+    heavy, heavy_yesterday
+    from nowdata
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, confirmedCount, confirmedCount_yesterday, suspectedCount, suspectedCount_yesterday, 
+    curedCount, curedCount_yesterday, deadCount, deadCount_yesterday, nowconfirmed, nowconfirmed_yesterday, 
+    heavy, heavy_yesterday
+    from nowdata
+  </select>
+</mapper>

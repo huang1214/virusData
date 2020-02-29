@@ -2,11 +2,6 @@ package com.work.virus.pojo;
 
 import java.util.List;
 
-/**
- * Description:
- * User:曹文杰
- * Date:2020-02-18 14:31
- */
 public class Result {
     // 返回结果信息值   如果成功返回 ok
     //    "code": res.status, //解析接口状态

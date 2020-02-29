@@ -1,6 +1,7 @@
 package com.work.virus.controller;
 
 import com.work.virus.dao.DxyareaMapper;
+import com.work.virus.dao.NowdataMapper;
 import com.work.virus.pojo.Dxyarea;
 import com.work.virus.pojo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,6 @@ import java.util.List;
 public class DataController {
     @Autowired
     DxyareaMapper dxyareaMapper;
-
     /**
      * 按省查询各项数据汇总
      * @return

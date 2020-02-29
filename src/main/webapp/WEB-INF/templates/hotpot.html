@@ -1,73 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cn" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        .contain{
-            border: 1px solid #0C0C0C;
-            margin: 0 auto;
-            width: 920px;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            align-items: center;
-            align-content: space-around;
-        }
-        .item{
-            padding-top: 25px;
-
-            text-align: center;
-            width: 260px;
-            height: 150px;
-            flex-grow:1;
-            flex-shrink: 1;
-        }
-
-        b,em{
-            padding-top: 10px;
-            font-style:normal;
-            font-weight: normal;
-            font-size: 12px;
-        }
-        .item>strong{
-            margin-top: 5px;
-            font-size: 18px;
-        }
-        .item>div{
-            font-weight: bold;
-            font-size: 16px;
-        }
-    </style>
+    <link rel="stylesheet" href="/layui/css/layui.css" th:href="@{/layui/css/layui.css}">
+    <link rel="stylesheet" href="/css/hwj.css" th:href="@{/css/hwj.css}">
 </head>
 <body>
-<div class="contain">
+<!-- 数据修改为从后台获取比较好 -->
+<div class="contain shine_Gary">
     <div class="item">
-        <div><b>较昨日<em style="color: rgb(247, 76, 49);">-2608</em></b></div>
-        <strong style="color: rgb(247, 76, 49);">37403</strong><div>现存确诊</div>
+        <div><b>较昨日<em style="color: rgb(247, 76, 49);" th:text="${session.nowdata.nowconfirmedYesterday}"></em></b></div>
+        <strong style="color: rgb(247, 76, 49);" th:text="${session.nowdata.nowconfirmed}"></strong><div>现存确诊</div>
     </div>
     <div class="item">
-        <div><b>较昨日<em style="color: rgb(247, 130, 7);">+248</em></b></div>
-        <strong style="color: rgb(247, 130, 7);">1418</strong><div>现存疑似</div>
+        <div><b>较昨日<em style="color: rgb(247, 130, 7);" th:text="${session.nowdata.suspectedcountYesterday}"></em></b></div>
+        <strong style="color: rgb(247, 130, 7);" th:text="${session.nowdata.suspectedcount}"></strong><div>现存疑似</div>
     </div>
     <div class="item">
-        <div><b>较昨日<em style="color: rgb(162, 90, 78);">-288</em></b></div>
-        <strong style="color: rgb(247, 76, 49);">37403</strong><div>现存确诊</div>
+        <div><b>较昨日<em style="color: rgb(162, 90, 78);" th:text="${session.nowdata.heavyYesterday}"></em></b></div>
+        <strong style="color: rgb(247, 76, 49);" th:text="${session.nowdata.heavy}"></strong><div>重症患者</div>
     </div>
     <div class="item">
-        <div><b>较昨日<em style="color: rgb(174, 33, 44);">+435</em></b></div>
-        <strong style="color: rgb(174, 33, 44);">79394</strong><div>累计确诊</div>
+        <div><b>较昨日<em style="color: rgb(174, 33, 44);" th:text="${session.nowdata.confirmedcountYesterday}"></em></b></div>
+        <strong style="color: rgb(174, 33, 44);" th:text="${session.nowdata.confirmedcount}"></strong><div>累计确诊</div>
     </div>
     <div class="item">
-        <div><b>较昨日<em style="color: rgb(93, 112, 146);">+47</em></b></div>
-        <strong style="color: rgb(93, 112, 146);">2838</strong><div>累计死亡</div>
+        <div><b>较昨日<em style="color: rgb(93, 112, 146);" th:text="${session.nowdata.deadcountYesterday}"></em></b></div>
+        <strong style="color: rgb(93, 112, 146);" th:text="${session.nowdata.deadcount}"></strong><div>累计死亡</div>
     </div>
     <div class="item">
-        <div><b>较昨日<em style="color: rgb(40, 183, 163);">+2996</em></b></div>
-        <strong style="color: rgb(40, 183, 163);">39153</strong><div>累计治愈</div>
+        <div><b>较昨日<em style="color: rgb(40, 183, 163);" th:text="${session.nowdata.curedcountYesterday}"></em></b></div>
+        <strong style="color: rgb(40, 183, 163);" th:text="${session.nowdata.curedcount}"></strong><div>累计治愈</div>
+    </div>
+</div>
+<div class="layui-carousel" id="test2">
+    <div carousel-item>
+        <div><img src="/index/img/hot1.png" alt=""></div>
+        <div><img src="/index/img/hot2.png" alt=""></div>
+        <div><img src="/index/img/hot3.png" alt=""></div>
+        <div><img src="/index/img/hot4.png" alt=""></div>
+        <div><img src="/index/img/hot5.png" alt=""></div>
     </div>
 </div>
 
+<script src="/layui/layui.js" th:src="@{/layui/layui.js}"></script>
+<script>
+    layui.use('carousel', function(){
+        var carousel = layui.carousel;
+        //建造实例
+        carousel.render({
+            elem: '#test2'
+            ,width: '50%' //设置容器宽度
+            ,arrow: 'always' //始终显示箭头
+        });
+    });
+</script>
 </body>
 </html>
