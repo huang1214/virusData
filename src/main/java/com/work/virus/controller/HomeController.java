@@ -41,4 +41,11 @@ public class HomeController {
         return "table_for_data";
     }
 
+    @RequestMapping("/provinces")
+    public String provinces() {
+        return "provinces";
+    }
+
+    @RequestMapping("/city")
+    public String city(){return "city";}
 }

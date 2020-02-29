@@ -14,6 +14,9 @@ CREATE TABLE `news` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+SET FOREIGN_KEY_CHECKS = 1;
+
 -- 热搜榜
 
 -- 辟谣榜

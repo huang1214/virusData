@@ -45,10 +45,10 @@
                     <a href="javascript:;">省市疫情查询</a>
                     <dl class="layui-nav-child">
                         <!--关于页面的跳转请写在homeController中，其页面内部功能的实现请尽情发挥,单独分controller吧-->
-                        <dd><a href="javascript:;" data-url="home/hotpot" data-id="9" data-title="城市数据"
-                               class="site-active" data-type="tabAdd">城市数据</a></dd>
-                        <dd><a href="javascript:;" data-url="home/hotpot" data-id="10" data-title="省份数据"
+                        <dd><a href="javascript:;" data-url="home/provinces" data-id="9" data-title="城市数据"
                                class="site-active" data-type="tabAdd">省份数据</a></dd>
+                        <dd><a href="javascript:;" data-url="home/city" data-id="10" data-title="省份数据"
+                               class="site-active" data-type="tabAdd">湖北省城市数据</a></dd>
                     </dl>
                 </li>
 
@@ -105,7 +105,6 @@
     //JavaScript代码区域
     layui.use('element', function(){
         var element = layui.element;
-
     });
 </script>
 </body>
