@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.work.virus.dao.DxyareaMapper">
+    <resultMap id="BaseResultMap" type="com.work.virus.pojo.Dxyarea">
+        <result column="provinceName" property="provincename" jdbcType="VARCHAR"/>
+        <result column="provinceEnglishName" property="provinceenglishname" jdbcType="VARCHAR"/>
+        <result column="province_zipCode" property="provinceZipcode" jdbcType="VARCHAR"/>
+        <result column="cityName" property="cityname" jdbcType="VARCHAR"/>
+        <result column="cityEnglishName" property="cityenglishname" jdbcType="VARCHAR"/>
+        <result column="city_zipCode" property="cityZipcode" jdbcType="VARCHAR"/>
+        <result column="province_confirmedCount" property="provinceConfirmedcount" jdbcType="INTEGER"/>
+        <result column="province_suspectedCount" property="provinceSuspectedcount" jdbcType="INTEGER"/>
+        <result column="province_curedCount" property="provinceCuredcount" jdbcType="INTEGER"/>
+        <result column="province_deadCount" property="provinceDeadcount" jdbcType="INTEGER"/>
+        <result column="city_confirmedCount" property="cityConfirmedcount" jdbcType="INTEGER"/>
+        <result column="city_suspectedCount" property="citySuspectedcount" jdbcType="INTEGER"/>
+        <result column="city_curedCount" property="cityCuredcount" jdbcType="INTEGER"/>
+        <result column="city_deadCount" property="cityDeadcount" jdbcType="INTEGER"/>
+        <result column="updateTime" property="updatetime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <insert id="insert" parameterType="com.work.virus.pojo.Dxyarea">
+    insert into dxyarea (provinceName, provinceEnglishName, 
+      province_zipCode, cityName, cityEnglishName, 
+      city_zipCode, province_confirmedCount, province_suspectedCount, 
+      province_curedCount, province_deadCount, 
+      city_confirmedCount, city_suspectedCount, 
+      city_curedCount, city_deadCount, updateTime
+      )
+    values (#{provincename,jdbcType=VARCHAR}, #{provinceenglishname,jdbcType=VARCHAR}, 
+      #{provinceZipcode,jdbcType=VARCHAR}, #{cityname,jdbcType=VARCHAR}, #{cityenglishname,jdbcType=VARCHAR}, 
+      #{cityZipcode,jdbcType=VARCHAR}, #{provinceConfirmedcount,jdbcType=INTEGER}, #{provinceSuspectedcount,jdbcType=INTEGER}, 
+      #{provinceCuredcount,jdbcType=INTEGER}, #{provinceDeadcount,jdbcType=INTEGER}, 
+      #{cityConfirmedcount,jdbcType=INTEGER}, #{citySuspectedcount,jdbcType=INTEGER}, 
+      #{cityCuredcount,jdbcType=INTEGER}, #{cityDeadcount,jdbcType=INTEGER}, #{updatetime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+    <select id="selectAll" resultMap="BaseResultMap">
+    select provinceName, provinceEnglishName, province_zipCode, cityName, cityEnglishName, 
+    city_zipCode, province_confirmedCount, province_suspectedCount, province_curedCount, 
+    province_deadCount, city_confirmedCount, city_suspectedCount, city_curedCount, city_deadCount, 
+    updateTime
+    from dxyarea
+  </select>
+    <select id="sumByProvince" resultMap="BaseResultMap">
+    SELECT provinceName,
+    province_zipCode,
+    province_confirmedCount,
+    province_suspectedCount,
+    province_curedCount,
+    province_deadCount
+    FROM dxyarea
+    GROUP BY province_zipCode
+  </select>
+    <select id="selectByProvinceId" resultMap="BaseResultMap" parameterType="string">
+    select  cityName,
+    city_confirmedCount,
+    city_suspectedCount,
+    city_curedCount,
+    city_deadCount
+    from dxyarea where province_zipCode=#{province_zipCode}
+  </select>
+</mapper>

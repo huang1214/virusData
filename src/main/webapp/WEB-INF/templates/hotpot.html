@@ -3,8 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        .contain{
+            border: 1px solid #0C0C0C;
+            margin: 0 auto;
+            width: 920px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            align-content: space-around;
+        }
+        .item{
+            padding-top: 25px;
+
+            text-align: center;
+            width: 260px;
+            height: 150px;
+            flex-grow:1;
+            flex-shrink: 1;
+        }
+
+        b,em{
+            padding-top: 10px;
+            font-style:normal;
+            font-weight: normal;
+            font-size: 12px;
+        }
+        .item>strong{
+            margin-top: 5px;
+            font-size: 18px;
+        }
+        .item>div{
+            font-weight: bold;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
-    热点图
+<div class="contain">
+    <div class="item">
+        <div><b>较昨日<em style="color: rgb(247, 76, 49);">-2608</em></b></div>
+        <strong style="color: rgb(247, 76, 49);">37403</strong><div>现存确诊</div>
+    </div>
+    <div class="item">
+        <div><b>较昨日<em style="color: rgb(247, 130, 7);">+248</em></b></div>
+        <strong style="color: rgb(247, 130, 7);">1418</strong><div>现存疑似</div>
+    </div>
+    <div class="item">
+        <div><b>较昨日<em style="color: rgb(162, 90, 78);">-288</em></b></div>
+        <strong style="color: rgb(247, 76, 49);">37403</strong><div>现存确诊</div>
+    </div>
+    <div class="item">
+        <div><b>较昨日<em style="color: rgb(174, 33, 44);">+435</em></b></div>
+        <strong style="color: rgb(174, 33, 44);">79394</strong><div>累计确诊</div>
+    </div>
+    <div class="item">
+        <div><b>较昨日<em style="color: rgb(93, 112, 146);">+47</em></b></div>
+        <strong style="color: rgb(93, 112, 146);">2838</strong><div>累计死亡</div>
+    </div>
+    <div class="item">
+        <div><b>较昨日<em style="color: rgb(40, 183, 163);">+2996</em></b></div>
+        <strong style="color: rgb(40, 183, 163);">39153</strong><div>累计治愈</div>
+    </div>
+</div>
+
 </body>
 </html>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.work.virus.dao.OverAllMapper" >
+  <resultMap id="BaseResultMap" type="com.work.virus.pojo.OverAll" >
+    <id column="_id" property="id" jdbcType="VARCHAR" />
+    <result column="infectSource" property="infectsource" jdbcType="VARCHAR" />
+    <result column="passWay" property="passway" jdbcType="VARCHAR" />
+    <result column="dailyPic" property="dailypic" jdbcType="VARCHAR" />
+    <result column="dailyPics" property="dailypics" jdbcType="VARCHAR" />
+    <result column="summary" property="summary" jdbcType="VARCHAR" />
+    <result column="countRemark" property="countremark" jdbcType="VARCHAR" />
+    <result column="currentConfirmedCount" property="currentconfirmedcount" jdbcType="VARCHAR" />
+    <result column="confirmedCount" property="confirmedcount" jdbcType="VARCHAR" />
+    <result column="suspectedCount" property="suspectedcount" jdbcType="VARCHAR" />
+    <result column="curedCount" property="curedcount" jdbcType="VARCHAR" />
+    <result column="deadCount" property="deadcount" jdbcType="VARCHAR" />
+    <result column="seriousCount" property="seriouscount" jdbcType="VARCHAR" />
+    <result column="suspectedIncr" property="suspectedincr" jdbcType="VARCHAR" />
+    <result column="currentConfirmedIncr" property="currentconfirmedincr" jdbcType="VARCHAR" />
+    <result column="confirmedIncr" property="confirmedincr" jdbcType="VARCHAR" />
+    <result column="curedIncr" property="curedincr" jdbcType="VARCHAR" />
+    <result column="deadIncr" property="deadincr" jdbcType="VARCHAR" />
+    <result column="seriousIncr" property="seriousincr" jdbcType="VARCHAR" />
+    <result column="virus" property="virus" jdbcType="VARCHAR" />
+    <result column="remark1" property="remark1" jdbcType="VARCHAR" />
+    <result column="remark2" property="remark2" jdbcType="VARCHAR" />
+    <result column="remark3" property="remark3" jdbcType="VARCHAR" />
+    <result column="remark4" property="remark4" jdbcType="VARCHAR" />
+    <result column="remark5" property="remark5" jdbcType="VARCHAR" />
+    <result column="note1" property="note1" jdbcType="VARCHAR" />
+    <result column="note2" property="note2" jdbcType="VARCHAR" />
+    <result column="note3" property="note3" jdbcType="VARCHAR" />
+    <result column="generalRemark" property="generalremark" jdbcType="VARCHAR" />
+    <result column="abroadRemark" property="abroadremark" jdbcType="VARCHAR" />
+    <result column="marquee" property="marquee" jdbcType="VARCHAR" />
+    <result column="quanguoTrendChart" property="quanguotrendchart" jdbcType="VARCHAR" />
+    <result column="hbFeiHbTrendChart" property="hbfeihbtrendchart" jdbcType="VARCHAR" />
+    <result column="updateTime" property="updatetime" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from dxyoverall
+    where _id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.work.virus.pojo.OverAll" >
+    insert into dxyoverall (_id, infectSource, passWay, 
+      dailyPic, dailyPics, summary, 
+      countRemark, currentConfirmedCount, confirmedCount, 
+      suspectedCount, curedCount, deadCount, 
+      seriousCount, suspectedIncr, currentConfirmedIncr, 
+      confirmedIncr, curedIncr, deadIncr, 
+      seriousIncr, virus, remark1, 
+      remark2, remark3, remark4, 
+      remark5, note1, note2, 
+      note3, generalRemark, abroadRemark, 
+      marquee, quanguoTrendChart, hbFeiHbTrendChart, 
+      updateTime)
+    values (#{id,jdbcType=VARCHAR}, #{infectsource,jdbcType=VARCHAR}, #{passway,jdbcType=VARCHAR}, 
+      #{dailypic,jdbcType=VARCHAR}, #{dailypics,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR}, 
+      #{countremark,jdbcType=VARCHAR}, #{currentconfirmedcount,jdbcType=VARCHAR}, #{confirmedcount,jdbcType=VARCHAR}, 
+      #{suspectedcount,jdbcType=VARCHAR}, #{curedcount,jdbcType=VARCHAR}, #{deadcount,jdbcType=VARCHAR}, 
+      #{seriouscount,jdbcType=VARCHAR}, #{suspectedincr,jdbcType=VARCHAR}, #{currentconfirmedincr,jdbcType=VARCHAR}, 
+      #{confirmedincr,jdbcType=VARCHAR}, #{curedincr,jdbcType=VARCHAR}, #{deadincr,jdbcType=VARCHAR}, 
+      #{seriousincr,jdbcType=VARCHAR}, #{virus,jdbcType=VARCHAR}, #{remark1,jdbcType=VARCHAR}, 
+      #{remark2,jdbcType=VARCHAR}, #{remark3,jdbcType=VARCHAR}, #{remark4,jdbcType=VARCHAR}, 
+      #{remark5,jdbcType=VARCHAR}, #{note1,jdbcType=VARCHAR}, #{note2,jdbcType=VARCHAR}, 
+      #{note3,jdbcType=VARCHAR}, #{generalremark,jdbcType=VARCHAR}, #{abroadremark,jdbcType=VARCHAR}, 
+      #{marquee,jdbcType=VARCHAR}, #{quanguotrendchart,jdbcType=VARCHAR}, #{hbfeihbtrendchart,jdbcType=VARCHAR}, 
+      #{updatetime,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.work.virus.pojo.OverAll" >
+    update dxyoverall
+    set infectSource = #{infectsource,jdbcType=VARCHAR},
+      passWay = #{passway,jdbcType=VARCHAR},
+      dailyPic = #{dailypic,jdbcType=VARCHAR},
+      dailyPics = #{dailypics,jdbcType=VARCHAR},
+      summary = #{summary,jdbcType=VARCHAR},
+      countRemark = #{countremark,jdbcType=VARCHAR},
+      currentConfirmedCount = #{currentconfirmedcount,jdbcType=VARCHAR},
+      confirmedCount = #{confirmedcount,jdbcType=VARCHAR},
+      suspectedCount = #{suspectedcount,jdbcType=VARCHAR},
+      curedCount = #{curedcount,jdbcType=VARCHAR},
+      deadCount = #{deadcount,jdbcType=VARCHAR},
+      seriousCount = #{seriouscount,jdbcType=VARCHAR},
+      suspectedIncr = #{suspectedincr,jdbcType=VARCHAR},
+      currentConfirmedIncr = #{currentconfirmedincr,jdbcType=VARCHAR},
+      confirmedIncr = #{confirmedincr,jdbcType=VARCHAR},
+      curedIncr = #{curedincr,jdbcType=VARCHAR},
+      deadIncr = #{deadincr,jdbcType=VARCHAR},
+      seriousIncr = #{seriousincr,jdbcType=VARCHAR},
+      virus = #{virus,jdbcType=VARCHAR},
+      remark1 = #{remark1,jdbcType=VARCHAR},
+      remark2 = #{remark2,jdbcType=VARCHAR},
+      remark3 = #{remark3,jdbcType=VARCHAR},
+      remark4 = #{remark4,jdbcType=VARCHAR},
+      remark5 = #{remark5,jdbcType=VARCHAR},
+      note1 = #{note1,jdbcType=VARCHAR},
+      note2 = #{note2,jdbcType=VARCHAR},
+      note3 = #{note3,jdbcType=VARCHAR},
+      generalRemark = #{generalremark,jdbcType=VARCHAR},
+      abroadRemark = #{abroadremark,jdbcType=VARCHAR},
+      marquee = #{marquee,jdbcType=VARCHAR},
+      quanguoTrendChart = #{quanguotrendchart,jdbcType=VARCHAR},
+      hbFeiHbTrendChart = #{hbfeihbtrendchart,jdbcType=VARCHAR},
+      updateTime = #{updatetime,jdbcType=VARCHAR}
+    where _id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select _id, infectSource, passWay, dailyPic, dailyPics, summary, countRemark, currentConfirmedCount, 
+    confirmedCount, suspectedCount, curedCount, deadCount, seriousCount, suspectedIncr, 
+    currentConfirmedIncr, confirmedIncr, curedIncr, deadIncr, seriousIncr, virus, remark1, 
+    remark2, remark3, remark4, remark5, note1, note2, note3, generalRemark, abroadRemark, 
+    marquee, quanguoTrendChart, hbFeiHbTrendChart, updateTime
+    from dxyoverall
+    where _id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select _id, infectSource, passWay, dailyPic, dailyPics, summary, countRemark, currentConfirmedCount, 
+    confirmedCount, suspectedCount, curedCount, deadCount, seriousCount, suspectedIncr, 
+    currentConfirmedIncr, confirmedIncr, curedIncr, deadIncr, seriousIncr, virus, remark1, 
+    remark2, remark3, remark4, remark5, note1, note2, note3, generalRemark, abroadRemark, 
+    marquee, quanguoTrendChart, hbFeiHbTrendChart, updateTime
+    from dxyoverall
+  </select>
+</mapper>
