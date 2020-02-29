@@ -33,11 +33,11 @@
                             3. data-title 作为弹出层的标题
                             4. site-active 作为js控制能否弹出的条件
 -->
-                        <dd><a href="javascript:;" data-url="hotpot" data-id="6" data-title="疫情热点图"
+                        <dd><a href="javascript:;" data-url="home/hotpot" data-id="6" data-title="疫情热点图"
                                class="site-active" data-type="tabAdd">疫情热点图</a></dd>
-                        <dd><a href="javascript:;" data-url="trend" data-id="7" data-title="疫情新增趋势图"
+                        <dd><a href="javascript:;" data-url="home/trend" data-id="7" data-title="疫情新增趋势图"
                                class="site-active" data-type="tabAdd">疫情新增趋势图</a></dd>
-                        <dd><a href="javascript:;" data-url="table_for_data" data-id="8" data-title="数据表格"
+                        <dd><a href="javascript:;" data-url="home/table_for_data" data-id="8" data-title="数据表格"
                                class="site-active" data-type="tabAdd">数据表格</a></dd>
                     </dl>
                 </li>
@@ -45,10 +45,10 @@
                     <a href="javascript:;">省市疫情查询</a>
                     <dl class="layui-nav-child">
                         <!--关于页面的跳转请写在homeController中，其页面内部功能的实现请尽情发挥,单独分controller吧-->
-                        <dd><a href="javascript:;" data-url="provinces" data-id="9" data-title="城市数据"
+                        <dd><a href="javascript:;" data-url="home/hotpot" data-id="9" data-title="城市数据"
+                               class="site-active" data-type="tabAdd">城市数据</a></dd>
+                        <dd><a href="javascript:;" data-url="home/hotpot" data-id="10" data-title="省份数据"
                                class="site-active" data-type="tabAdd">省份数据</a></dd>
-                        <dd><a href="javascript:;" data-url="city" data-id="10" data-title="省份数据"
-                               class="site-active" data-type="tabAdd">湖北省城市数据</a></dd>
                     </dl>
                 </li>
 
@@ -56,9 +56,9 @@
                     <a href="javascript:;">医疗数据填报</a>
                     <dl class="layui-nav-child">
                         <!--关于页面的跳转请写在homeController中，其页面内部功能的实现请尽情发挥,单独分controller吧-->
-                        <dd><a href="javascript:;" data-url="hotpot" data-id="11" data-title="口罩预约"
+                        <dd><a href="javascript:;" data-url="home/hotpot" data-id="11" data-title="口罩预约"
                                class="site-active" data-type="tabAdd">口罩预约</a></dd>
-                        <dd><a href="javascript:;" data-url="hotpot" data-id="12" data-title="情况调查"
+                        <dd><a href="javascript:;" data-url="home/hotpot" data-id="12" data-title="情况调查"
                                class="site-active" data-type="tabAdd">情况调查</a></dd>
                     </dl>
                 </li>
@@ -66,11 +66,11 @@
                     <a href="javascript:;">全民热搜</a>
                     <dl class="layui-nav-child">
                         <!--关于页面的跳转请写在homeController中，其页面内部功能的实现请尽情发挥，单独分controller吧-->
-                        <dd><a href="javascript:;" data-url="hotpot" data-id="13" data-title="疫情新闻"
+                        <dd><a href="javascript:;" data-url="home/newsTable" data-id="13" data-title="疫情新闻"
                                class="site-active" data-type="tabAdd">疫情新闻</a></dd>
-                        <dd><a href="javascript:;" data-url="hotpot" data-id="14" data-title="辟谣榜"
+                        <dd><a href="javascript:;" data-url="home/rumours" data-id="14" data-title="辟谣榜"
                                class="site-active" data-type="tabAdd">辟谣榜</a></dd>
-                        <dd><a href="javascript:;" data-url="hotpot" data-id="15" data-title="最新新闻"
+                        <dd><a href="javascript:;" data-url="home/hotpot" data-id="15" data-title="最新新闻"
                                class="site-active" data-type="tabAdd">最新新闻</a></dd>
                     </dl>
                 </li>
@@ -105,6 +105,7 @@
     //JavaScript代码区域
     layui.use('element', function(){
         var element = layui.element;
+
     });
 </script>
 </body>

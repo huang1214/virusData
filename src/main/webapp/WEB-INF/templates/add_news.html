@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet"  href="../layui/css/layui.css" th:href="@{/layui/css/layui.css}">
+
+</head>
+<body>
+<form class="layui-form" action="" lay-filter="example" id="form">
+    <div class="layui-form-item">
+        <label class="layui-form-label">标题</label>
+        <div class="layui-input-block">
+            <input type="text" name="title"  placeholder="请输入标题" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">内容</label>
+        <div class="layui-input-block">
+            <input type="text" name="summary"    placeholder="请输入内容" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">信息来源</label>
+        <div class="layui-input-block">
+            <input type="text" name="infosource"   placeholder="请输入信息来源" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="sub" id="submit">提交</button>
+        </div>
+    </div>
+</form>
+<script src="../layui/layui.js" th:src="@{/layui/layui.js}" ></script>
+<script src="../js/newsTable.js"th:src="@{/js/newsTable.js}" ></script>
+</body>
+</html>
