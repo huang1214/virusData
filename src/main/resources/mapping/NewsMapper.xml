@@ -51,4 +51,36 @@
     createTime, modifyTime
     from news
   </select>
+
+
+  <insert id="rep" parameterType="com.work.virus.pojo.News" >
+    replace into news (id, pubDate, pubDateStr,
+      title, summary, infoSource,
+      sourceUrl, provinceName, createTime,
+      modifyTime)
+    values (#{id,jdbcType=VARCHAR}, #{pubdate,jdbcType=TIMESTAMP}, #{pubdatestr,jdbcType=VARCHAR},
+      #{title,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR}, #{infosource,jdbcType=VARCHAR},
+      #{sourceurl,jdbcType=VARCHAR}, #{provincename,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP},
+      #{modifytime,jdbcType=TIMESTAMP})
+  </insert>
+
+
+  <update id="update" parameterType="java.lang.String">
+    update news
+    set
+    <if test="field == 'title'">
+      title = #{value,jdbcType=VARCHAR}
+    </if>
+    <if test="field == 'summary'">
+      summary = #{value,jdbcType=VARCHAR}
+    </if>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+
+  <select id="selectNews" resultMap="BaseResultMap" >
+    select *
+    from news
+    where title like concat ('%',#{title},'%')
+  </select>
 </mapper>
