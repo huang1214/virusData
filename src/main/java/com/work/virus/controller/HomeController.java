@@ -1,5 +1,8 @@
 package com.work.virus.controller;
 
+import com.work.virus.dao.NowdataMapper;
+import com.work.virus.pojo.Nowdata;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -13,6 +16,9 @@ import java.util.Enumeration;
 @Controller
 @RequestMapping("/home")
 public class HomeController {
+    @Autowired
+    NowdataMapper nowdataMapper;
+
     @RequestMapping("/login")
     public String login(HttpServletRequest request, HttpServletResponse response){
         // 清空session
@@ -28,9 +34,19 @@ public class HomeController {
     }
 
     @RequestMapping("/hotpot")
-    public String hotpot(){
+    public String hotpot(HttpServletRequest request){
+        // 当访问此页面的时候，从数据库读取数据,写入session中
+        try {
+            Nowdata nowdata = nowdataMapper.selectByPrimaryKey("1");
+            if (nowdata != null){
+                request.getSession().setAttribute("nowdata",nowdata);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return "hotpot";
     }
+
     @RequestMapping("/trend")
     public String trend(){
         return "trend";
