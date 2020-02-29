@@ -18,8 +18,6 @@ import java.util.Enumeration;
 @RequestMapping("/home")
 public class HomeController {
 
-
-
     @RequestMapping("/index")
     public String index(){
         return "index";
