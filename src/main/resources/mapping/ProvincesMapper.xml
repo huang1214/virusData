@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.work.virus.dao.ProvincesMapper" >
+  <resultMap id="BaseResultMap" type="com.work.virus.pojo.Provinces" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="pro_name" property="proName" jdbcType="VARCHAR" />
+    <result column="confirmed_num" property="confirmedNum" jdbcType="INTEGER" />
+    <result column="cure_num" property="cureNum" jdbcType="INTEGER" />
+    <result column="death_num" property="deathNum" jdbcType="INTEGER" />
+    <result column="fabu_time" property="fabuTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from provinces
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.work.virus.pojo.Provinces" >
+    insert into provinces (id, pro_name, confirmed_num, 
+      cure_num, death_num, fabu_time
+      )
+    values (#{id,jdbcType=VARCHAR}, #{proName,jdbcType=VARCHAR}, #{confirmedNum,jdbcType=INTEGER}, 
+      #{cureNum,jdbcType=INTEGER}, #{deathNum,jdbcType=INTEGER}, #{fabuTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.work.virus.pojo.Provinces" >
+    update provinces
+    set pro_name = #{proName,jdbcType=VARCHAR},
+      confirmed_num = #{confirmedNum,jdbcType=INTEGER},
+      cure_num = #{cureNum,jdbcType=INTEGER},
+      death_num = #{deathNum,jdbcType=INTEGER},
+      fabu_time = #{fabuTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select id, pro_name, confirmed_num, cure_num, death_num, fabu_time
+    from provinces
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, pro_name, confirmed_num, cure_num, death_num, fabu_time
+    from provinces
+  </select>
+  <!--  //单元格修改方式-->
+  <update id="update" parameterType="java.lang.String" >
+    update provinces
+    set
+    <if test="field==''">
+      = #{value,jdbcType=VARCHAR}
+    </if>
+    <if test="field=='proName'">
+      pro_name = #{value,jdbcType=VARCHAR}
+    </if>
+    <if test="field=='confirmedNum'">
+      confirmed_num = #{value,jdbcType=VARCHAR}
+    </if>
+
+    <if test="field=='cureNum'">
+      cure_num = #{value,jdbcType=VARCHAR}
+    </if>
+    <if test="field=='deathNum'">
+      death_num = #{value,jdbcType=VARCHAR}
+    </if>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <select id="selectByproName" resultMap="BaseResultMap" >
+    select * from provinces
+    where pro_name like concat('%',#{pro_name},'%') limit #{page},#{pageTotal}
+  </select>
+</mapper>

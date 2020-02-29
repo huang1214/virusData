@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.work.virus.dao.CityMapper" >
+  <resultMap id="BaseResultMap" type="com.work.virus.pojo.City" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="city_name" property="cityName" jdbcType="VARCHAR" />
+    <result column="add_num" property="addNum" jdbcType="INTEGER" />
+    <result column="confirmed_num" property="confirmedNum" jdbcType="INTEGER" />
+    <result column="cure_num" property="cureNum" jdbcType="INTEGER" />
+    <result column="death_num" property="deathNum" jdbcType="INTEGER" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from city
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.work.virus.pojo.City" >
+    insert into city (id, city_name, add_num, 
+      confirmed_num, cure_num, death_num
+      )
+    values (#{id,jdbcType=VARCHAR}, #{cityName,jdbcType=VARCHAR}, #{addNum,jdbcType=INTEGER}, 
+      #{confirmedNum,jdbcType=INTEGER}, #{cureNum,jdbcType=INTEGER}, #{deathNum,jdbcType=INTEGER}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.work.virus.pojo.City" >
+    update city
+    set city_name = #{cityName,jdbcType=VARCHAR},
+      add_num = #{addNum,jdbcType=INTEGER},
+      confirmed_num = #{confirmedNum,jdbcType=INTEGER},
+      cure_num = #{cureNum,jdbcType=INTEGER},
+      death_num = #{deathNum,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select id, city_name, add_num, confirmed_num, cure_num, death_num
+    from city
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, city_name, add_num, confirmed_num, cure_num, death_num
+    from city
+  </select>
+  <!--  //单元格修改方式-->
+  <update id="update" parameterType="java.lang.String" >
+    update city
+    set
+    <if test="field==''">
+      = #{value,jdbcType=VARCHAR}
+    </if>
+    <if test="field=='cityName'">
+      city_name = #{value,jdbcType=VARCHAR}
+    </if>
+    <if test="field=='addNum'">
+      add_num = #{value,jdbcType=VARCHAR}
+    </if>
+    <if test="field=='confirmedNum'">
+      confirmed_num = #{value,jdbcType=VARCHAR}
+    </if>
+
+    <if test="field=='cureNum'">
+      cure_num = #{value,jdbcType=VARCHAR}
+    </if>
+    <if test="field=='deathNum'">
+      death_num = #{value,jdbcType=VARCHAR}
+    </if>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

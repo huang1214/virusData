@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.work.virus.dao.NewsMapper" >
+  <resultMap id="BaseResultMap" type="com.work.virus.pojo.News" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="pubDate" property="pubdate" jdbcType="TIMESTAMP" />
+    <result column="pubDateStr" property="pubdatestr" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="summary" property="summary" jdbcType="VARCHAR" />
+    <result column="infoSource" property="infosource" jdbcType="VARCHAR" />
+    <result column="sourceUrl" property="sourceurl" jdbcType="VARCHAR" />
+    <result column="provinceName" property="provincename" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="modifyTime" property="modifytime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from news
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.work.virus.pojo.News" >
+    insert into news (id, pubDate, pubDateStr, 
+      title, summary, infoSource, 
+      sourceUrl, provinceName, createTime, 
+      modifyTime)
+    values (#{id,jdbcType=VARCHAR}, #{pubdate,jdbcType=TIMESTAMP}, #{pubdatestr,jdbcType=VARCHAR}, 
+      #{title,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR}, #{infosource,jdbcType=VARCHAR}, 
+      #{sourceurl,jdbcType=VARCHAR}, #{provincename,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{modifytime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.work.virus.pojo.News" >
+    update news
+    set pubDate = #{pubdate,jdbcType=TIMESTAMP},
+      pubDateStr = #{pubdatestr,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      summary = #{summary,jdbcType=VARCHAR},
+      infoSource = #{infosource,jdbcType=VARCHAR},
+      sourceUrl = #{sourceurl,jdbcType=VARCHAR},
+      provinceName = #{provincename,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      modifyTime = #{modifytime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select id, pubDate, pubDateStr, title, summary, infoSource, sourceUrl, provinceName, 
+    createTime, modifyTime
+    from news
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, pubDate, pubDateStr, title, summary, infoSource, sourceUrl, provinceName, 
+    createTime, modifyTime
+    from news
+  </select>
+</mapper>
