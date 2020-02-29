@@ -26,9 +26,8 @@ function forDetail(provinceZipCode) {
                         "      <td>"+data[i].cityDeadcount+"</td>\n" +
                         "    </tr>\n";
                 }
-
                 // 字符串拼接一个静态表格
-                let loadstr = "<table class=\"layui-table\">\n" +
+                let loadstr = "<table class=\"layui-table\">\n" +login.html
                     "  <colgroup>\n" +
                     "    <col width=\"150\">\n" +
                     "    <col width=\"200\">\n" +

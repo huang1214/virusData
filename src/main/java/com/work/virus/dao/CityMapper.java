@@ -13,6 +13,6 @@ public interface CityMapper {
     City selectByPrimaryKey(String id);
 
     List<City> selectAll();
-    int update(@Param("id")String id, @Param("field")String field, @Param("value")String value);
+    int update(@Param("id") String id, @Param("field") String field, @Param("value") String value);
     int updateByPrimaryKey(City record);
 }

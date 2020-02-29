@@ -85,6 +85,31 @@ layui.use(['laydate', 'laypage', 'layer', 'table', 'carousel', 'upload', 'elemen
             }
         }); //只重载数据
     });
+    //监听头工具栏事件
+    table.on('toolbar(videoTable)', function(obj){
+        var checkStatus = table.checkStatus(obj.config.id)
+            ,data = checkStatus.data; //获取选中的数据
+        switch(obj.event){
+            case 'add':
+                layer.msg('全国');
+                //需要打开添加层,打开视频添加窗口 弹出一个层
+                layer.open({
+                    type:2,  //框架窗口
+                    title :"全国趋势",
+                    shape :0.8,  //外部阴影配置
+                    shadeClose:true, //点击窗口外部时，窗口消失
+                    area : ['60%','60%'],
+                    content : "/virusData/templates/allChina.html"
+                });
+                break;
+
+            case 'delete':
+                layer.msg('湖北');
+
+                break;
+
+        };
+    });
 });
 
 

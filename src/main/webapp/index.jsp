@@ -5,6 +5,6 @@
 <%--<jsp:forward page="/home/login"></jsp:forward>--%>
 
 <%--跳至主页--%>
-<jsp:forward page="/home/index"></jsp:forward>
+<jsp:forward page="/user/login"></jsp:forward>
 </body>
 </html>

@@ -16,8 +16,8 @@ public interface ProvincesMapper {
 
     int updateByPrimaryKey(Provinces record);
 
-    int update(@Param("id")String id, @Param("field")String field, @Param("value")String value);
+    int update(@Param("id") String id, @Param("field") String field, @Param("value") String value);
 
     //搜索 函数，根据userid查询的方法  通过模糊查询
-    List<Provinces> selectByproName(@Param("pro_name")String pro_name,@Param("page")Integer page, @Param("pageTotal")Integer pageTotal);
+    List<Provinces> selectByproName(@Param("pro_name") String pro_name, @Param("page") Integer page, @Param("pageTotal") Integer pageTotal);
 }
