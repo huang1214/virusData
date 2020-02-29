@@ -50,16 +50,21 @@
 
 
         <!-- 配置表名跟pojo名  该table节点可以多个 -->
-        <table tableName="news" domainObjectName="News"
+<!--        <table tableName="news" domainObjectName="News"-->
+<!--               enableCountByExample="false" enableUpdateByExample="false"-->
+<!--               enableDeleteByExample="false" enableSelectByExample="false"-->
+<!--               selectByExampleQueryId="false">-->
+<!--        </table>-->
+        <table tableName="dxyarea" domainObjectName="Dxyarea"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
         </table>
-        <!--<table tableName="sys_role" domainObjectName="SysRole"-->
-               <!--enableCountByExample="false" enableUpdateByExample="false"-->
-               <!--enableDeleteByExample="false" enableSelectByExample="false"-->
-               <!--selectByExampleQueryId="false">-->
-        <!--</table>-->
+        <table tableName="dxyoverall" domainObjectName="OverAll"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
      <!--   <table tableName="videos" domainObjectName="Videos"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
