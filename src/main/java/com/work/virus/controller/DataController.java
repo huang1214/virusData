@@ -40,4 +40,24 @@ public class DataController {
         }
         return result;
     }
+
+    @RequestMapping("/detail")
+    @ResponseBody
+    public Result detail(String provinceId){
+        Result result = new Result();
+        try {
+            List<Dxyarea> dxyareaList = dxyareaMapper.selectByProvinceId(provinceId);
+            System.out.println(dxyareaList);
+            if (dxyareaList.size() > 0){
+                result.setItem(dxyareaList);
+                result.setMessage("查询成功");
+            }else{
+                result.setStatus("201");
+                result.setMessage("数据不足");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return result;
+    }
 }

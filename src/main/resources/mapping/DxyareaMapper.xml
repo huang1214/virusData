@@ -51,4 +51,12 @@
     FROM dxyarea
     GROUP BY province_zipCode
   </select>
+    <select id="selectByProvinceId" resultMap="BaseResultMap" parameterType="string">
+    select  cityName,
+    city_confirmedCount,
+    city_suspectedCount,
+    city_curedCount,
+    city_deadCount
+    from dxyarea where province_zipCode=#{province_zipCode}
+  </select>
 </mapper>
