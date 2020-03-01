@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.work.virus.dao.AppmaskMapper" >
+  <resultMap id="BaseResultMap" type="com.work.virus.pojo.Appmask" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="shopname" property="shopname" jdbcType="VARCHAR" />
+    <result column="appname" property="appname" jdbcType="VARCHAR" />
+    <result column="masktype" property="masktype" jdbcType="VARCHAR" />
+    <result column="buytype" property="buytype" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="VARCHAR" />
+    <result column="time" property="time" jdbcType="VARCHAR" />
+    <result column="notice" property="notice" jdbcType="VARCHAR" />
+    <result column="cover_path" property="coverPath" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from appmask
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.work.virus.pojo.Appmask" >
+    insert into appmask (id, shopname, appname, 
+      masktype, buytype, price, 
+      time, notice, cover_path
+      )
+    values (#{id,jdbcType=VARCHAR}, #{shopname,jdbcType=VARCHAR}, #{appname,jdbcType=VARCHAR}, 
+      #{masktype,jdbcType=VARCHAR}, #{buytype,jdbcType=VARCHAR}, #{price,jdbcType=VARCHAR}, 
+      #{time,jdbcType=VARCHAR}, #{notice,jdbcType=VARCHAR}, #{coverPath,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.work.virus.pojo.Appmask" >
+    update appmask
+    set shopname = #{shopname,jdbcType=VARCHAR},
+      appname = #{appname,jdbcType=VARCHAR},
+      masktype = #{masktype,jdbcType=VARCHAR},
+      buytype = #{buytype,jdbcType=VARCHAR},
+      price = #{price,jdbcType=VARCHAR},
+      time = #{time,jdbcType=VARCHAR},
+      notice = #{notice,jdbcType=VARCHAR},
+      cover_path = #{coverPath,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select id, shopname, appname, masktype, buytype, price, time, notice, cover_path
+    from appmask
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, shopname, appname, masktype, buytype, price, time, notice, cover_path
+    from appmask
+  </select>
+</mapper>

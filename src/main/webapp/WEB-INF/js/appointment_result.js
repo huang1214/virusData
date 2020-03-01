@@ -28,19 +28,21 @@ layui.use(['laydate', 'laypage', 'layer', 'table', 'carousel', 'upload', 'elemen
         ,totalRow: true //开启合计行
         ,cols: [[ //表头
             {type: 'checkbox', fixed: 'left'}
-            ,{field: 'aid', title: 'ID', width:80, sort: true,align:'center'}
-            ,{field: 'userId', title: '申请使用账号', width:80}
-            ,{field: 'name', title: '申请人姓名', align:'center',edit:"text"}
-            ,{field: 'province', title: '所在省', align:'center',edit:"text"}
-            ,{field: 'city', title: '所在城市', align:'center'}
-            ,{field: 'area', title: '所在地区', align:'center'}
-            ,{field: 'street', title: '隶属街道', sort:true,edit:"text"}
-            ,{field: 'storeId', title: '药店id',align:'center',edit:"text"}
-            /*,{field: 'date', title: '创建时间',  sort: true, align:'center',edit:"text",
+            ,{field: 'aid', title: 'ID', width:180, sort: true,align:'center'}
+            ,{field: 'userId', title: '申请使用账号', width:180}
+            ,{field: 'name', title: '申请人姓名', align:'center'}
+            ,{field: 'nums', title: '预约数量', sort:true}
+            ,{field: 'phone', title: '联系电话', sort:true}
+            ,{field: 'result', title: '预约结果',  sort: true, align:'center',
                 templet:function (e) {
-                    return showTime(e.createTime);
+                    if(e.status==0){
+                        return "预约失败;"
+                    }
+                    else{
+                        return  "预约成功"
+                    }
                 }
-            }*/
+            }
         ]]
     });
 // 当点击搜索按钮时
@@ -61,37 +63,4 @@ layui.use(['laydate', 'laypage', 'layer', 'table', 'carousel', 'upload', 'elemen
         }); //只重载数据
 
     })
-
-    /*//口罩预约信息的上传
-    $("#submit_result").on("click",function () {
-
-       /!* //防止表单的默认事件提交
-        event.preventDefault();*!/
-
-        var fd = $("#result")[0];
-        //通过formdata抓取表单
-        var formdata = new FormData(fd);
-
-        //ajax与后台传值
-        $.ajax({
-            url:"/virus/mask/query_result",
-            type:"post",
-            data:formdata,
-            dataType:'json',
-            contentType:false,//防止jQuery对其操作
-            processData:false,//当设置为true时，jQuery ajax不会序列化 直接使用data
-            success:function (res) {
-                console.log(res);
-                parent.layer.alert(res.message,{icon:1},function () {
-
-                });
-            },
-            error:function (res) {
-
-            }
-
-        })
-    })*/
-
-
 });

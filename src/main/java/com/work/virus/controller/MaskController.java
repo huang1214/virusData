@@ -1,10 +1,13 @@
 package com.work.virus.controller;
 
+import com.work.virus.dao.AppmaskMapper;
 import com.work.virus.dao.MaskMapper;
+import com.work.virus.pojo.Appmask;
 import com.work.virus.pojo.Mask;
 import com.work.virus.pojo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -21,6 +24,8 @@ import java.util.UUID;
 public class MaskController {
     @Autowired
     MaskMapper maskMapper;
+    @Autowired
+    AppmaskMapper appmaskMapper;
 
     @RequestMapping("/application_add")
     @ResponseBody
@@ -80,7 +85,6 @@ public class MaskController {
             String userId = "001";
             List<Mask> masks = maskMapper.selectQueryResult(userId,phone);
             //遍历集合
-            System.out.println("这里执行了");
             System.out.println("masks得到的集合"+masks);
             for(Mask m: masks){
                 System.out.println(m.getIdentity());
@@ -94,18 +98,14 @@ public class MaskController {
                 String str = s.substring(s.length()-6,s.length());
                 System.out.println(str);
                 if(str.equals(identity)){
-                    System.out.println("我送你离开千里之外");
                     newmasks.add(m);
                 }
             }
-            System.out.println("问题是不是在这里"+newmasks);
             if (newmasks==null){
                 result.setMessage("没有数据");
                 result.setStatus("200");
             }
             else{
-                System.out.println("====================================================");
-
                 result.setMessage("success");
                 //把数据存到结果集类中：
                 result.setItem(newmasks);
@@ -118,6 +118,23 @@ public class MaskController {
             return result;
         }catch(Exception e){
             result.setMessage("error");
+        }
+        return result;
+    }
+
+    //查询所有视频信息的方法
+    @RequestMapping("/app_query")
+    @ResponseBody
+    public Result appQueryAll(ModelMap map) {
+        System.out.println("已经收到调用接口");
+        List<Appmask> list = appmaskMapper.selectAll();
+        System.out.println(list);
+        Result result = new Result();
+        if(list.size()>0)
+        {
+            result.setItem(list);
+            result.setMessage("success");
+            result.setTotal(list.size());
         }
         return result;
     }
