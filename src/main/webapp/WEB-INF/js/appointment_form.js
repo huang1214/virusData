@@ -2,9 +2,10 @@ var areaData;
 var $form;
 var form;
 var $;
-layui.use(['jquery', 'form'], function() {
+layui.use(['laydate', 'laypage', 'layer', 'table', 'carousel', 'upload', 'element', 'slider','form'], function(){
     $ = layui.jquery;
     form = layui.form;
+    var table = layui.table ;//表格
     $form = $('form');
     areaData = Area;
     loadProvince();
@@ -96,6 +97,65 @@ layui.use(['jquery', 'form'], function() {
             }
 
         })
+    })
+    //选择附近药店弹出层
+    function chooseStoreLayer() {
+        layer.open({
+            type: 1  //1为页面层
+            , title: '选择附近药店'  //弹出层标题
+            , area: ['800px', '434px']    //设置弹出层大小[宽，高]
+            , offset: 'auto'   //设置弹出层位置
+            , id: 'layerDemo_storeId' //防止重复弹出，点击这个input只能有一个弹出层
+            , content: $("#layer_storeId")   //弹出层内容为layer_storeId块，不能直接是表格id
+            , btnAlign: 'c' //按钮居中
+            , shade: 0 //不显示遮罩
+            , yes: function () {  //确定按钮回调方法， 需要手动关闭弹出层
+                layer.closeAll();
+            }
+        });
+    }
+    //附近药店弹出层表格
+    $(document).on('click', '#storeId', function () {
+        chooseStoreLayer();
+        // 比赛名称弹出层>>表格
+        table.render({
+            elem: '#layer_store_table'
+            , height: 312
+            , url: '/index/store/querry_store' //数据接口
+            ,parseData: function(res) { //res 即为原始返回的数据
+                return {
+                    "code": res.status, //解析接口状态 要求是"0"
+                    "msg": res.message, //解析提示文本
+                    "count": res.total, //解析数据长度
+                    "data": res.item //解析数据列表
+                };
+            }
+            , method: "get"
+            , page: true //开启分页
+            , toolbar: '#toolbar_storeId'
+            , cols: [
+                [ //表头
+                    {type: 'radio'}
+                    , {field: 'storeId', title: '药店Id', width: 103, sort: true}
+                    , {field: 'storename', title: '药店名称', width: 350}
+                    , {field: 'location', title: '详细地址', width: 350}
+                ]
+            ]
+        });
+
+    })
+    //附近药店信息获取
+    table.on('toolbar(layer_store_table)', function (obj) {
+        //注：tool 是工具条事件名，layer_store_table 是 table 原始容器的属性 lay-filter="对应的值"
+        var checkStatus = table.checkStatus(obj.config.id); //获取选中行状态
+        switch (obj.event) {
+            case 'getCheckData_storeId':
+                var data = checkStatus.data;  //获取选中行数据
+                document.getElementById("storeId").value = data[0].storeId;  //将获取的数据中的dno值给input
+
+                layer.closeAll(); //疯狂模式，关闭所有层
+                break;
+        }
     })
 
 

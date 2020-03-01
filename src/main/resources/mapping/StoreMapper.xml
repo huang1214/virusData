@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.work.virus.dao.StoreMapper" >
+  <resultMap id="BaseResultMap" type="com.work.virus.pojo.Store" >
+    <id column="store_id" property="storeId" jdbcType="INTEGER" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="area" property="area" jdbcType="VARCHAR" />
+    <result column="storename" property="storename" jdbcType="VARCHAR" />
+    <result column="location" property="location" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from store
+    where store_id = #{storeId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.work.virus.pojo.Store" >
+    insert into store (store_id, province, city, 
+      area, storename, location
+      )
+    values (#{storeId,jdbcType=INTEGER}, #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, 
+      #{area,jdbcType=VARCHAR}, #{storename,jdbcType=VARCHAR}, #{location,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.work.virus.pojo.Store" >
+    update store
+    set province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      area = #{area,jdbcType=VARCHAR},
+      storename = #{storename,jdbcType=VARCHAR},
+      location = #{location,jdbcType=VARCHAR}
+    where store_id = #{storeId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select store_id, province, city, area, storename, location
+    from store
+    where store_id = #{storeId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select store_id, province, city, area, storename, location
+    from store
+  </select>
+</mapper>

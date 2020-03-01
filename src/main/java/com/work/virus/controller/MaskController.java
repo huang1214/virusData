@@ -7,7 +7,6 @@ import com.work.virus.pojo.Mask;
 import com.work.virus.pojo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -122,10 +121,10 @@ public class MaskController {
         return result;
     }
 
-    //查询所有视频信息的方法
+
     @RequestMapping("/app_query")
     @ResponseBody
-    public Result appQueryAll(ModelMap map) {
+    public Result appQueryAll() {
         System.out.println("已经收到调用接口");
         List<Appmask> list = appmaskMapper.selectAll();
         System.out.println(list);
