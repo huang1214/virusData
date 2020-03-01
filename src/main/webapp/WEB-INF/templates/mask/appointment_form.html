@@ -15,8 +15,23 @@
         color: red;
         margin-right: 10px;
     }
+    #layer_storeId{
+        display:none;
+    }
 </style>
 <body>
+<!--弹出层：比赛名称-->
+<div id="layer_storeId">
+    <form class="layui-form" action="" style="margin-top: 20px">
+        <label class="layui-form-label">关键词：</label>
+        <div class="layui-inline">
+            <input class="layui-input" name="search_storeName" id="search_storeId" autocomplete="off" placeholder="请输入药店名称关键字">
+        </div>
+        <button type="button" class="layui-btn" data-type="reload" id="btn_search_storeName">搜索</button>
+        <button type="reset" class="layui-btn" id="btn_reset_storeName">重置</button>
+    </form>
+    <table id="layer_store_table" lay-filter="layer_store_table"></table>
+</div>
 <div class="formdata">
     <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
         <legend>口罩预约表单</legend>
@@ -54,25 +69,26 @@
                 <div class="layui-input-inline">
                     <select name="street">
                         <option value="">请选择所属镇街</option>
-                        <option value="你工作的第一个城市">你工作的第一个城市</option>
-                        <option value="你最喜欢的老师">你最喜欢的老师</option>
+                        <option value="万达广场">万达广场</option>
+                        <option value="央央大厦">央央大厦</option>
+                        <option value="央央大厦">岳麓南路</option>
+                        <option value="西湖区余杭塘路">西湖区余杭塘路</option>
                     </select>
                 </div>
             </div>
             <div class="layui-inline">
                 <label class="layui-form-label">附近药店</label>
                 <div class="layui-input-inline">
-                    <select name="store" lay-verify="required" lay-search="">
-                        <option value="">直接选择或搜索选择</option>
-                        <option value="1">layer</option>
-                        <option value="2">form</option>
-                        <option value="3">layim</option>
-                        <option value="4">element</option>
-                        <option value="5">laytpl</option>
-                        <option value="6">upload</option>
-                        <option value="7">laydate</option>
-                        <option value="8">laypage</option>
+                    <select name="street">
+                        <option value="">请选择所属镇街</option>
+                        <option value="东城国药万达药店">东城国药万达药店</option>
+                        <option value="东城国药森林药店">东城国药森林药店</option>
+                        <option value="东城国药红山第二药店">东城国药红山第二药店</option>
+                        <option value="东城国药恒大华都药店">东城国药恒大华都药店</option>
                     </select>
+<!--
+                    <input type="text"  class="layui-btn layui-btn-primary" name="storeId" id="storeId" data-method="offset" autocomplete="off" data-type="t"  placeholder="点击选择附近药店">
+-->
                 </div>
             </div>
         </div>
@@ -122,9 +138,10 @@
 <script src="../layui/layui.js" th:src="@{../layui/layui.js}"></script>
 <script src="../js/appointment_form.js" th:src="@{../js/appointment_form.js}"></script>
 <script src="../js/area.js" th:src="@{../js/area.js}"></script>
-<script>
-
-
+<script type="text/html" id="toolbar_storeId">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="getCheckData_storeId">获取选中行数据</button>
+    </div>
 </script>
 </body>
 </html>
