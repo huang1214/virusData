@@ -32,7 +32,7 @@ public class NewsController {
         JSONArray jsonArray=(JSONArray)jsonObject.get("data");
         List<News> list = JSONObject.parseArray(jsonArray.toJSONString(), News.class);
         for(News news:list){
-            newsMapper.rep(news);
+            newsMapper.insert(news);
         }
     }
 

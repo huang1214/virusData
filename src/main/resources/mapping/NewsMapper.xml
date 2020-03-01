@@ -18,15 +18,16 @@
     where id = #{id,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.work.virus.pojo.News" >
-    insert into news (id, pubDate, pubDateStr, 
-      title, summary, infoSource, 
-      sourceUrl, provinceName, createTime, 
+    insert ignore into news (id, pubDate, pubDateStr,
+      title, summary, infoSource,
+      sourceUrl, provinceName, createTime,
       modifyTime)
-    values (#{id,jdbcType=VARCHAR}, #{pubdate,jdbcType=TIMESTAMP}, #{pubdatestr,jdbcType=VARCHAR}, 
-      #{title,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR}, #{infosource,jdbcType=VARCHAR}, 
-      #{sourceurl,jdbcType=VARCHAR}, #{provincename,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+    values (#{id,jdbcType=VARCHAR}, #{pubdate,jdbcType=TIMESTAMP}, #{pubdatestr,jdbcType=VARCHAR},
+      #{title,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR}, #{infosource,jdbcType=VARCHAR},
+      #{sourceurl,jdbcType=VARCHAR}, #{provincename,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP},
       #{modifytime,jdbcType=TIMESTAMP})
   </insert>
+
   <update id="updateByPrimaryKey" parameterType="com.work.virus.pojo.News" >
     update news
     set pubDate = #{pubdate,jdbcType=TIMESTAMP},

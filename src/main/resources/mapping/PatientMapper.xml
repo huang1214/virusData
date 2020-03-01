@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.work.virus.dao.PatientMapper" >
+  <resultMap id="BaseResultMap" type="com.work.virus.pojo.Patient" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="temperate" property="temperate" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from patient
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+
+  <insert id="insert" parameterType="com.work.virus.pojo.Patient" >
+    insert into patient (id, name, address, 
+      type, temperate)
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{temperate,jdbcType=VARCHAR})
+  </insert>
+
+  <update id="updateByPrimaryKey" parameterType="com.work.virus.pojo.Patient" >
+    update patient
+    set name = #{name,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      temperate = #{temperate,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select id, name, address, type, temperate
+    from patient
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectById" resultMap="BaseResultMap" >
+    select *
+    from patient
+    where id like concat ('%',#{id},'%')
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, name, address, type, temperate
+    from patient
+  </select>
+
+  <update id="update" parameterType="java.lang.String" >
+    update patient
+    set
+    <if test="field == 'name'">
+      name = #{value,jdbcType=VARCHAR}
+    </if>
+    <if test="field == 'type'">
+      type = #{value,jdbcType=VARCHAR}
+    </if>
+
+    <if test="field == 'address'">
+      address = #{value,jdbcType=VARCHAR}
+    </if>
+
+    <if test="field == 'temperate'">
+      temperate = #{value,jdbcType=VARCHAR}
+    </if>
+
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

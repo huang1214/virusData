@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>病例管理</title>
+
+    <link rel="stylesheet" href="layui/css/layui.css" th:href="@{/layui/css/layui.css}" >
+</head>
+<body>
+
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
+        <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
+        <button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button>
+        <button class="layui-btn layui-btn-sm" lay-event="delA">批量删除</button>
+    </div>
+    <div class="like" style="margin-top:10px;margin-left:35%">
+        搜索patientId
+        <div class="layui-inline">
+            <input  class="layui-input" name="userId" id="patientLike" autocomplete="off" />
+        </div>
+        <button class="layui-btn" data-type="reload" id="re" >搜索</button>
+    </div>
+</script>
+
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+
+<table id="demo" lay-filter="patientTable"></table>
+
+<script src="layui/layui.js" th:src="@{/layui/layui.js}"></script>
+<!-- 引入自己的js  js里对表格进行  数据渲染-->
+<script type="text/javascript" src="js/patientTable.js" th:src="@{/js/patientTable.js}" ></script>
+
+
+</body>
+</html>
+

@@ -117,4 +117,14 @@ public class HomeController {
         }
     }
 
+    @RequestMapping("/patientManage")
+    public String patientManage(){
+        return "patientManage";
+    }
+
+    @RequestMapping("/addpatient")
+    public String addpatient(){
+        return "addpatient";
+    }
+
 }
