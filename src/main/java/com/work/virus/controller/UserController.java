@@ -30,7 +30,7 @@ public class UserController {
         while(em.hasMoreElements()){
             request.getSession().removeAttribute(em.nextElement().toString());
         }
-        return "login";
+        return "/login";
     }
     //  发送验证码
     @RequestMapping("/userLogin")

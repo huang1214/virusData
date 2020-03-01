@@ -14,7 +14,7 @@ layui.use(['layer','form',"jquery"],function () {
             //通过ajax给 后台发送登录信息
             $.ajax({
                 type :"post",
-                url : "user/userLogin",
+                url : "/index/user/userLogin",
                 data :data.field,
                 dataType : "json",
                 success : function(res){
@@ -51,5 +51,5 @@ layui.use(['layer','form',"jquery"],function () {
 
 function changeCode() {
     var img = document.getElementById("codeImg");
-    img.src="/virusData/home/getCode?time="+new Date().getTime();
+    img.src="/index/home/getCode?time="+new Date().getTime();
 }

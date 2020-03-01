@@ -17,7 +17,7 @@ layui.use(['laydate', 'laypage', 'layer', 'table', 'carousel', 'upload', 'elemen
     var tableIns =  table.render({
         elem: '#demo'
         ,height: 420
-        ,url: '/virusData/provinces/selectAll' //数据接口
+        ,url: '/index/provinces/selectAll' //数据接口
         ,parseData: function(res) { //res 即为原始返回的数据
             return {
                 "code": res.status, //解析接口状态 要求是"0"
@@ -53,7 +53,7 @@ layui.use(['laydate', 'laypage', 'layer', 'table', 'carousel', 'upload', 'elemen
         //通过ajax往后台发送消息 发送到控制层 修改update方法
         $.ajax({
             type :"post",
-            url :"/virusData/provinces/update",
+            url :"/index/provinces/update",
             data : {
                 "id": obj.data.id,
                 "field":obj.field,
@@ -75,7 +75,7 @@ layui.use(['laydate', 'laypage', 'layer', 'table', 'carousel', 'upload', 'elemen
         console.log("要进行表格重载");
         console.log($("#proLike").val());
         table.reload('demo', {
-            url :"/virusData/provinces/query",//会自动把page和limit加到后边，便于查询
+            url :"/index/provinces/query",//会自动把page和limit加到后边，便于查询
             where: { //设定异步数据接口的额外参数，任意设
                 //获取传进来的省份名
                 proName:$("#proLike").val()
@@ -99,7 +99,7 @@ layui.use(['laydate', 'laypage', 'layer', 'table', 'carousel', 'upload', 'elemen
                     shape :0.8,  //外部阴影配置
                     shadeClose:true, //点击窗口外部时，窗口消失
                     area : ['60%','60%'],
-                    content : "/virusData/templates/allChina.html"
+                    content : "/index/templates/allChina.html"
                 });
                 break;
 

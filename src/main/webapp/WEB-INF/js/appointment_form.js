@@ -79,7 +79,7 @@ layui.use(['jquery', 'form'], function() {
 
         //ajax与后台传值
         $.ajax({
-            url:"/virus/mask/application_add",
+            url:"/index/mask/application_add",
             type:"post",
             data:formdata,
             dataType:'json',

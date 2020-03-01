@@ -13,7 +13,7 @@ layui.use(['laydate', 'laypage', 'layer', 'table', 'carousel', 'upload', 'elemen
     table.render({
         elem: '#demo'
         ,height: 820
-        ,url: '/virus/mask/query_result' //数据接口,
+        ,url: '/index/mask/query_result' //数据接口,
         ,parseData: function(res) { //res 即为原始返回的数据
             return {
                 "code": res.status, //解析接口状态 要求是"0"
@@ -50,7 +50,7 @@ layui.use(['laydate', 'laypage', 'layer', 'table', 'carousel', 'upload', 'elemen
         // 搜索 表格重载函数
         console.log("要进行表格重载");
         table.reload('demo', {
-            url:"/virus/mask/query_result", // 会把page 和limit（在页面的分页参数里） 加到路径后边
+            url:"/index/mask/query_result", // 会把page 和limit（在页面的分页参数里） 加到路径后边
             where: { //设定异步数据接口的额外参数，任意设
                 identity:$("#identity").val(),
                 phone:$("#phone").val()

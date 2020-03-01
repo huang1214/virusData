@@ -17,7 +17,7 @@ layui.use(['laydate', 'laypage', 'layer', 'table', 'carousel', 'upload', 'elemen
     var tableIns =  table.render({
         elem: '#demo'
         ,height: 420
-        ,url: '/virusData/city/selectAll' //数据接口
+        ,url: '/index/city/selectAll' //数据接口
         ,parseData: function(res) { //res 即为原始返回的数据
             return {
                 "code": res.status, //解析接口状态 要求是"0"
@@ -50,7 +50,7 @@ layui.use(['laydate', 'laypage', 'layer', 'table', 'carousel', 'upload', 'elemen
         //通过ajax往后台发送消息 发送到控制层 修改update方法
         $.ajax({
             type :"post",
-            url :"/virusData/city/update",
+            url :"/index/city/update",
             data : {
                 "id": obj.data.id,
                 "field":obj.field,
@@ -78,7 +78,7 @@ layui.use(['laydate', 'laypage', 'layer', 'table', 'carousel', 'upload', 'elemen
                     shape :0.8,  //外部阴影配置
                     shadeClose:true, //点击窗口外部时，窗口消失
                     area : ['60%','60%'],
-                    content : "/virusData/templates/addcity.html"
+                    content : "/index/templates/addcity.html"
                 });
                 break;
             case 'update':
@@ -109,7 +109,7 @@ layui.use(['laydate', 'laypage', 'layer', 'table', 'carousel', 'upload', 'elemen
         var formdata = new FormData(fd2);
 
         $.ajax({
-            url :"/virusData/city/add",
+            url :"/index/city/add",
             type :"post",
             data :formdata,
             dataType :"json",
